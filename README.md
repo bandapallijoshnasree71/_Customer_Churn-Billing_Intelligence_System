@@ -127,8 +127,3 @@ Run `streamlit run app.py` to launch the interactive web dashboard locally, or a
 ## Project Status
 
 Completed — dual classification and regression models trained, pipeline artifacts saved, and full interactive Streamlit web dashboard implemented with single and batch inference capabilities.
-
-## Author
-
-**Joshna Sree**  
-Aspiring Data Analyst
