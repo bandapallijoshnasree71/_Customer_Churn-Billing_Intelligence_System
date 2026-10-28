@@ -36,17 +36,53 @@ Compares customer risk against predicted monthly charges using interactive Plotl
 <img width="993" height="607" alt="04_Visual_Analytics_Dashboard" src="screenshots/Visual_Analytics_Dashboard/Screenshot%202026-10-28%20150146.png" />
 
 
+## Model Training & Evaluation Results
+
+The machine learning models are trained using 5-fold cross-validation to select optimal hyperparameters for both classification and regression tasks.
+
+### 1. Classification Performance (Predicting Churn)
+
+* **Algorithm**: K-Nearest Neighbors Classifier (`KNeighborsClassifier`)
+* **Optimal Hyperparameter**: Best $K = 20$
+* **Accuracy Score**: 78.36%
+* **ROC-AUC Score**: 0.8107
+
+#### Classification Report:
+| Metric | Class 0 (Stay) | Class 1 (Churn) | Overall / Macro Avg | Weighted Avg |
+| :--- | :---: | :---: | :---: | :---: |
+| **Precision** | 0.83 | 0.61 | 0.72 | 0.77 |
+| **Recall** | 0.88 | 0.51 | 0.70 | 0.78 |
+| **F1-Score** | 0.86 | 0.55 | 0.71 | 0.78 |
+| **Support** | 1,033 | 372 | 1,405 | 1,405 |
+
+<img width="992" height="420" alt="Confusion Matrix & ROC Curve" src="screenshots/Model_Evaluation/01_Confusion_Matrix_ROC.png" />
+
+
+### 2. Regression Performance (Predicting Monthly Charges)
+
+* **Algorithm**: K-Nearest Neighbors Regressor (`KNeighborsRegressor`)
+* **Optimal Hyperparameter**: Best $K = 10$
+* **Mean Absolute Error (MAE)**: \$3.0865
+* **Mean Squared Error (MSE)**: 21.4470
+* **Root Mean Squared Error (RMSE)**: \$4.6311
+* **$R^2$ Score**: 0.9757
+
+<img width="992" height="420" alt="Cross Validation Curve" src="screenshots/Model_Evaluation/02_Cross_Validation_Curve.png" />
+
+<img width="992" height="420" alt="Regression Residuals Distribution" src="screenshots/Model_Evaluation/03_Regression_Residuals.png" />
+
+
 ## Key Performance Indicators
 
-- Total Evaluated Customers
-- High-Risk Retention Count (Risk ≥ 60%)
-- Average Churn Risk %
+- Total Evaluated Customers (7,043)
+- High-Risk Retention Count (1,253 Accounts with Risk ≥ 60%)
+- Average Churn Risk % (29.1%)
 - Monthly Revenue at Risk ($)
 - Annualized Revenue Impact ($)
 - Churn Risk Probability Score (%)
 - Estimated Monthly Charges ($)
-- Classification ROC-AUC Score
-- Model Prediction Accuracy
+- Classification ROC-AUC Score (0.8107)
+- Regression Model $R^2$ Score (0.9757)
 
 ## Dataset
 
@@ -84,9 +120,15 @@ This project uses the Telco Customer Churn dataset.
 - KPI Development
 - Business Insights & Retention Analysis
 
-## Project Setup & Usage
+## Project File
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/bandapallijoshnasree71/telco-churn-predictor.git](https://github.com/bandapallijoshnasree71/telco-churn-predictor.git)
-cd telco-churn-predictor
+Run `streamlit run app.py` to launch the interactive web dashboard locally, or access the live deployed Streamlit application.
+
+## Project Status
+
+Completed — dual classification and regression models trained, pipeline artifacts saved, and full interactive Streamlit web dashboard implemented with single and batch inference capabilities.
+
+## Author
+
+**Joshna Sree**  
+Aspiring Data Analyst
